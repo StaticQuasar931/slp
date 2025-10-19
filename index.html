@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Play Slope Online - Free & Unblocked on StaticQuasar931</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Play Slope online for free! Experience high-speed downhill racing in this 3D ball-rolling game. Unblocked at school & work, no downloads needed!" />
+  <meta name="keywords" content="Slope, play Slope online, Slope unblocked, free Slope game, high-speed ball game, rolling ball simulator, endless running game, Slope at school, no download Slope, best unblocked arcade games, 3D racing game, Slope browser game, fast-paced reflex game, extreme downhill racing, unblocked 3D games, play Slope no ads, infinite speed run game, online skill game, fun school games, Slope challenge, reaction-based game, school-friendly games, staticquasar, staticquasar931, static 931, staticq, staticq931" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/sl0pe" />
+
+  <!-- Preload Rotating Icons -->
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png">
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533158/raw_cw34yi.png">
+
+  <!-- GitHub Resource Links -->
+  <link rel="stylesheet" href="https://staticquasar931.github.io/slp/style/style.css" />
+  <script src="https://staticquasar931.github.io/slp/UnityProgress.js"></script>
+  <script src="https://staticquasar931.github.io/slp/UnityLoader.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #231f20;
+      font-family: Arial, sans-serif;
+    }
+
+    .webgl-content {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #gameContainer {
+      width: 100vw;
+      height: 100vh;
+      background: #231f20;
+      position: relative;
+    }
+
+    .seo-content {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
+    .tip-banner {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.95);
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      z-index: 9999;
+      max-width: 90%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .tip-banner a {
+      color: #007bff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .tip-close {
+      cursor: pointer;
+      font-weight: bold;
+      color: #c0392b;
+      font-size: 18px;
+      margin-left: auto;
+    }
+
+    #staticMenu {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #111;
+      color: #0ff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+      animation: glow 2s infinite alternate;
+    }
+
+    #staticMenu a {
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #closeStaticMenu {
+      margin-left: 12px;
+      color: #f55;
+      cursor: pointer;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; box-shadow: 0 0 10px #0ff; }
+    }
+
+    #staticSlideMenu {
+      position: fixed;
+      bottom: 30px;
+      right: -150px;
+      width: 100px;
+      height: 100px;
+      z-index: 9999;
+      transition: right 1.2s ease-in-out;
+    }
+
+    #staticSlideMenu.show {
+      right: 30px;
+    }
+
+    #staticSlideMenu img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: pulse 2.8s ease-in-out infinite;
+      border-radius: 50%;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1.00); }
+      50% { transform: scale(1.08); }
+    }
+
+    @media (max-width: 768px) {
+      #staticSlideMenu {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+
+  <script>
+    window.onbeforeunload = () => "Are you sure you want to leave? Your progress may not be saved.";
+
+    let gameInstance;
+    function resizeCanvas() {
+      const canvas = document.getElementById("canvas");
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+
+    const formImg = "https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png";
+    const instaImg = "https://res.cloudinary.com/dcsrqennd/image/upload/v1747533158/raw_cw34yi.png";
+    const formLink = "https://sites.google.com/view/staticquasar931/google-form";
+    const instaLink = "https://www.instagram.com/freeschoolgamepage/";
+    let showForm = true;
+
+    function toggleMenu() {
+      const menu = document.getElementById("staticSlideMenu");
+      if (showForm) {
+        menu.href = formLink;
+        menu.querySelector("img").src = formImg;
+        menu.querySelector("img").alt = "Google Form";
+      } else {
+        menu.href = instaLink;
+        menu.querySelector("img").src = instaImg;
+        menu.querySelector("img").alt = "Instagram";
+      }
+      showForm = !showForm;
+      menu.classList.add("show");
+      setTimeout(() => {
+        menu.classList.remove("show");
+      }, 10000);
+    }
+
+    window.onload = () => {
+      resizeCanvas();
+
+      gameInstance = UnityLoader.instantiate("gameContainer", "https://staticquasar931.github.io/slp/slope_new.json", {
+        onProgress: UnityProgress,
+        Module: {
+          onRuntimeInitialized: function () {
+            UnityProgress(gameInstance, "complete");
+          }
+        }
+      });
+
+      setTimeout(() => {
+        const tip = document.getElementById("tipBanner");
+        if (tip) tip.style.display = "none";
+      }, 10000);
+
+      const closeBtn = document.getElementById('closeStaticMenu');
+      closeBtn.onclick = () => {
+        const menu = document.getElementById("staticMenu");
+        menu.style.display = "none";
+        setTimeout(() => {
+          menu.style.display = "block";
+        }, 180000);
+      };
+
+      toggleMenu();
+      setInterval(toggleMenu, 25000);
+    };
+  </script>
+</head>
+
+<body>
+
+  <!-- Static Menu -->
+  <div id="staticMenu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank">More Unblocked Games by Static</a>
+    <span id="closeStaticMenu">✕</span>
+  </div>
+
+  <!-- Rotating Icon -->
+  <a id="staticSlideMenu" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank">
+    <img src="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png" alt="Google Form">
+  </a>
+
+  <!-- Unity Game -->
+  <div class="webgl-content">
+    <div id="gameContainer">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- Help Tip -->
+  <div class="tip-banner" id="tipBanner">
+    <span>
+      For Slope to work at school, you might need to turn off your internet around 80% into loading.
+      <a href="https://sites.google.com/view/staticquasar931/home/help-faq?authuser=0#h.qjb289kqv0nd" target="_blank">Need more help?</a>
+    </span>
+    <span class="tip-close" onclick="closeTip()">✕</span>
+  </div>
+
+  <!-- Hidden SEO Block -->
+  <div class="seo-content">
+    Play Slope, the popular unblocked 3D ball-rolling game, now fully accessible from school or work with StaticQuasar931. Featuring seamless controls, endless reflex challenges, and a high-speed neon downhill track. Experience this fun arcade hit directly in your browser — no installs, no ads, just pure gameplay. Discover more free unblocked games at https://sites.google.com/view/staticquasar931/gm3z.
+  </div>
+
+</body>
+</html>
